@@ -29,17 +29,17 @@ const REFRESH_MIN = 15;
 // ---------- 色（アプリと同じ配色。ライト／ダークで切り替わる） ----------
 function dyn(light, dark) { return Color.dynamic(new Color(light), new Color(dark)); }
 const C = {
-  bg: dyn('#F8F9F6', '#1A221D'),
-  ink: dyn('#1E2A23', '#E2E8E1'),
-  ink2: dyn('#58665D', '#9BA89F'),
-  moss: dyn('#3E5F48', '#8DB592'),
-  high: dyn('#A24F3A', '#E39079'),
-  mid: dyn('#93701F', '#D9B264'),
-  low: dyn('#477A6E', '#86BFAF')
+  bg: dyn('#FCFDFB', '#2C352F'),
+  ink: dyn('#2A352E', '#E8EDE7'),
+  ink2: dyn('#66736A', '#AEB9B0'),
+  moss: dyn('#557A5E', '#A3C7A7'),
+  high: dyn('#B0614C', '#EBA592'),
+  mid: dyn('#9A7A26', '#E3C27E'),
+  low: dyn('#4F8577', '#9DCDBE')
 };
 // 画像（リング）はライト／ダークを切り替えられないので、どちらでも読める中間の色にする
-const RING_FG = new Color('#5E8A64');
-const RING_BG = new Color('#93B293', 0.32);
+const RING_FG = new Color('#7BA582');
+const RING_BG = new Color('#A3C2A7', 0.32);
 const RANK_W = { high: 3, mid: 2, low: 1 };
 const WD = ['日', '月', '火', '水', '木', '金', '土'];
 
@@ -182,7 +182,7 @@ function ringStack(parent, s, size, line, label, font) {
 function footText(s) {
   if (!s.total) return 'タスクはまだありません';
   if (!s.remaining.length) return 'すべて完了。花が咲きました';
-  if (s.highLeft) return '「高」があと' + s.highLeft + '件';
+  if (s.highLeft) return 'Aがあと' + s.highLeft + '件';
   return 'のこり' + s.remaining.length + '件';
 }
 function staleLabel(r) {

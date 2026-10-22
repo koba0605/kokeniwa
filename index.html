@@ -7,8 +7,8 @@
 <meta name="referrer" content="no-referrer">
 <title>こけにわ</title>
 <meta name="description" content="毎日のタスクを重要度で分けて、達成度を植物の育ち方で見るタスク管理アプリ">
-<meta name="theme-color" content="#ECEFEA" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#121814" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F5F1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#232B26" media="(prefers-color-scheme: dark)">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="こけにわ">
@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
 <script src="config.js"></script>
 <script src="vendor/supabase.js" defer></script>
 <script src="app.js" defer></script>
@@ -129,6 +130,18 @@
         <h2 id="rate-title">重要度ごとの達成率（直近30日）</h2>
         <ul class="rank-rates" id="rank-rates"></ul>
       </section>
+      <section class="card section" aria-labelledby="theme-title">
+        <h2 id="theme-title">表示</h2>
+        <fieldset class="field">
+          <legend class="sr-only">表示テーマ</legend>
+          <div class="seg">
+            <input type="radio" name="theme" id="theme-auto" value="auto"><label for="theme-auto"><b>自動</b>端末に合わせる</label>
+            <input type="radio" name="theme" id="theme-light" value="light"><label for="theme-light"><b>ライト</b>明るい</label>
+            <input type="radio" name="theme" id="theme-dark" value="dark"><label for="theme-dark"><b>ダーク</b>暗い</label>
+          </div>
+        </fieldset>
+        <p class="theme-note">この端末だけに保存されます。</p>
+      </section>
       <section class="card section" aria-labelledby="data-title">
         <h2 id="data-title">データ</h2>
         <p class="sync" id="sync-status">この端末に保存しています。</p>
@@ -221,9 +234,9 @@
     <fieldset class="field">
       <legend>重要度</legend>
       <div class="seg">
-        <input type="radio" name="rank" id="rank-high" value="high"><label for="rank-high" class="high"><b>高</b>今日かならず</label>
-        <input type="radio" name="rank" id="rank-mid" value="mid"><label for="rank-mid" class="mid"><b>中</b>できれば今日</label>
-        <input type="radio" name="rank" id="rank-low" value="low"><label for="rank-low" class="low"><b>低</b>余裕があれば</label>
+        <input type="radio" name="rank" id="rank-high" value="high"><label for="rank-high" class="high"><b>A</b>今日かならず</label>
+        <input type="radio" name="rank" id="rank-mid" value="mid"><label for="rank-mid" class="mid"><b>B</b>できれば今日</label>
+        <input type="radio" name="rank" id="rank-low" value="low"><label for="rank-low" class="low"><b>C</b>余裕があれば</label>
       </div>
     </fieldset>
     <fieldset class="field">

@@ -1,9 +1,9 @@
 // こけにわ Service Worker
 // アプリ本体のファイルを端末に保存して、オフラインでも開けるようにする。
 // 通常はネットの最新版を使い、つながらないときだけ保存した版を使う。
-const CACHE = 'kokeniwa-v1';
+const CACHE = 'kokeniwa-v2';
 const SHELL = [
-  './', 'index.html', 'style.css', 'app.js', 'config.js', 'register-sw.js',
+  './', 'index.html', 'style.css', 'app.js', 'config.js', 'theme.js', 'register-sw.js',
   'vendor/supabase.js', 'manifest.webmanifest',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'
 ];

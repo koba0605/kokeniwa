@@ -4,9 +4,9 @@
   /* ---------- 定数・日付ユーティリティ ---------- */
   var LS_KEY = 'kokeniwa:v1';
   var RANKS = [
-    { id: 'high', short: '高', label: '今日かならず', weight: 3 },
-    { id: 'mid',  short: '中', label: 'できれば今日', weight: 2 },
-    { id: 'low',  short: '低', label: '余裕があれば', weight: 1 }
+    { id: 'high', short: 'A', label: '今日かならず', weight: 3 },
+    { id: 'mid',  short: 'B', label: 'できれば今日', weight: 2 },
+    { id: 'low',  short: 'C', label: '余裕があれば', weight: 1 }
   ];
   var RANK_W = { high: 3, mid: 2, low: 1 };
   var WD = ['日', '月', '火', '水', '木', '金', '土'];
@@ -242,7 +242,7 @@
     else if (p < 0.5) msg = '芽が伸びはじめました。';
     else if (p < 1) msg = '葉が増えてきました。あと' + (s.total - s.done) + '件で花が咲きます。';
     else msg = '花が咲きました。この日のタスクはすべて完了です。';
-    if (p < 1 && s.rank.high.total > s.rank.high.done && s.done > 0) msg += '「高」があと' + (s.rank.high.total - s.rank.high.done) + '件残っています。';
+    if (p < 1 && s.rank.high.total > s.rank.high.done && s.done > 0) msg += 'Aがあと' + (s.rank.high.total - s.rank.high.done) + '件残っています。';
     els.gardenMsg.textContent = msg;
   }
 
@@ -353,7 +353,7 @@
       return (RANK_W[b.rank] - RANK_W[a.rank]) || ((a.createdAt || 0) - (b.createdAt || 0));
     });
     var highLeft = s.rank.high.total - s.rank.high.done;
-    var foot = !s.total ? 'タスクなし' : !remaining.length ? 'すべて完了' : highLeft ? '「高」があと' + highLeft + '件' : 'のこり' + remaining.length + '件';
+    var foot = !s.total ? 'タスクなし' : !remaining.length ? 'すべて完了' : highLeft ? 'Aがあと' + highLeft + '件' : 'のこり' + remaining.length + '件';
     var list = remaining.slice(0, 3).map(function (x) {
       return '<li><span class="dot ' + esc(x.rank) + '"></span><span>' + esc(x.title) + '</span></li>';
     }).join('');
@@ -556,6 +556,15 @@
   document.querySelector('.tabbar').addEventListener('click', function (e) {
     var b = e.target.closest('[data-tab]'); if (b) setTab(b.getAttribute('data-tab'));
   });
+
+  /* 表示テーマ（自動／ライト／ダーク）。theme.js が保存と適用を受け持つ */
+  (function () {
+    var T = window.KokeniwaTheme; if (!T) return;
+    var cur = document.getElementById('theme-' + T.get()); if (cur) cur.checked = true;
+    document.querySelectorAll('input[name="theme"]').forEach(function (r) {
+      r.addEventListener('change', function () { if (r.checked) T.set(r.value); });
+    });
+  })();
 
   /* 日付が変わったら「今日」を進める（書き込みはしない） */
   function checkDayChange() {

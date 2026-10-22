@@ -1,53 +1,54 @@
 /* Layout: one phone-width column — the day's plant and progress first, then the week strip, then tasks grouped by rank; tabs fixed at the bottom */
 :root{
-  --bg:#ECEFEA;
-  --surface:#F8F9F6;
-  --surface-2:#E1E6DF;
-  --ink:#1E2A23;
-  --ink-2:#58665D;
-  --line:#D3DAD1;
-  --moss:#3E5F48;
-  --moss-soft:#D3E0D1;
-  --on-moss:#F4F7F2;
-  --on-moss-dim:rgba(244,247,242,.28);
-  --r-high:#A24F3A; --r-high-bg:#F2E0D8;
-  --r-mid:#93701F;  --r-mid-bg:#F1E7CD;
-  --r-low:#477A6E;  --r-low-bg:#D6E7E0;
-  --heat-0:#DDE3DB; --heat-1:#C0D2BD; --heat-2:#93B293; --heat-3:#5E8A64; --heat-4:#3E5F48;
-  --petal:#E7C39E;
-  --scrim:rgba(20,28,23,.38);
-  --toast-bg:#26332B; --toast-fg:#EEF2EC; --toast-action:#B9D5B8;
-  --wall-a:#B7C9B2; --wall-b:#5F7F64; --on-wall:#F4F7F2;
+  /* 薄めの配色（2026-10 改良）：背景は明るく、緑・ランク色は淡く。文字のコントラストはWCAGの基準を満たす範囲にしている */
+  --bg:#F3F5F1;
+  --surface:#FCFDFB;
+  --surface-2:#E9EDE7;
+  --ink:#2A352E;
+  --ink-2:#66736A;
+  --line:#DDE3DA;
+  --moss:#557A5E;
+  --moss-soft:#E1EBDF;
+  --on-moss:#FFFFFF;
+  --on-moss-dim:rgba(255,255,255,.32);
+  --r-high:#B0614C; --r-high-bg:#F7E8E2;
+  --r-mid:#9A7A26;  --r-mid-bg:#F5EDD8;
+  --r-low:#4F8577;  --r-low-bg:#E1EEE9;
+  --heat-0:#E9EDE7; --heat-1:#DCE7DB; --heat-2:#C3D8C4; --heat-3:#A3C2A7; --heat-4:#7BA582; --heat-fg-hi:#2A352E;
+  --petal:#EDCDA9;
+  --scrim:rgba(20,28,23,.28);
+  --toast-bg:#3A4A40; --toast-fg:#F1F4EF; --toast-action:#C5DEC4;
+  --wall-a:#E2EBDE; --wall-b:#A9C2AB; --on-wall:#2A352E;
   --lock-bg:rgba(18,28,22,.30); --lock-track:rgba(244,247,242,.30); --lock-fg:#F4F7F2;
-  --shadow:0 1px 2px rgba(30,42,35,.05),0 6px 20px rgba(30,42,35,.06);
-  --shadow-strong:0 2px 6px rgba(30,42,35,.12),0 10px 28px rgba(30,42,35,.16);
+  --shadow:0 1px 2px rgba(30,42,35,.04),0 6px 20px rgba(30,42,35,.05);
+  --shadow-strong:0 2px 6px rgba(30,42,35,.09),0 10px 28px rgba(30,42,35,.12);
   --font-display:"Klee One","Hiragino Mincho ProN","Yu Mincho",serif;
   --font-body:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP","Yu Gothic",system-ui,sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#121814; --surface:#1A221D; --surface-2:#242E27; --ink:#E2E8E1; --ink-2:#9BA89F; --line:#2D3830;
-    --moss:#8DB592; --moss-soft:#26382B; --on-moss:#102014; --on-moss-dim:rgba(16,32,20,.25);
-    --r-high:#E39079; --r-high-bg:#3A2620; --r-mid:#D9B264; --r-mid-bg:#352D1B; --r-low:#86BFAF; --r-low-bg:#1C322D;
-    --heat-0:#212A24; --heat-1:#2C4232; --heat-2:#3F6247; --heat-3:#5F8D63; --heat-4:#8DB592;
-    --petal:#E3BC93; --scrim:rgba(0,0,0,.55);
-    --toast-bg:#E2E8E1; --toast-fg:#16201A; --toast-action:#3E5F48;
-    --wall-a:#2D4033; --wall-b:#141D17; --on-wall:#E2E8E1;
-    --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 20px rgba(0,0,0,.22);
-    --shadow-strong:0 2px 6px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.4);
+    --bg:#232B26; --surface:#2C352F; --surface-2:#37413A; --ink:#E8EDE7; --ink-2:#AEB9B0; --line:#414C44;
+    --moss:#A3C7A7; --moss-soft:#3A4C3E; --on-moss:#1B2A1F; --on-moss-dim:rgba(27,42,31,.25);
+    --r-high:#EBA592; --r-high-bg:#4A3530; --r-mid:#E3C27E; --r-mid-bg:#463D2B; --r-low:#9DCDBE; --r-low-bg:#2F443E;
+    --heat-0:#313A34; --heat-1:#3F5545; --heat-2:#557459; --heat-3:#76A07B; --heat-4:#A3C7A7; --heat-fg-hi:#1B2A1F;
+    --petal:#EBC9A3; --scrim:rgba(0,0,0,.45);
+    --toast-bg:#E8EDE7; --toast-fg:#1F2922; --toast-action:#4E7457;
+    --wall-a:#4A5E50; --wall-b:#2C3630; --on-wall:#E8EDE7;
+    --shadow:0 1px 2px rgba(0,0,0,.22),0 6px 20px rgba(0,0,0,.16);
+    --shadow-strong:0 2px 6px rgba(0,0,0,.28),0 10px 28px rgba(0,0,0,.28);
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#121814; --surface:#1A221D; --surface-2:#242E27; --ink:#E2E8E1; --ink-2:#9BA89F; --line:#2D3830;
-  --moss:#8DB592; --moss-soft:#26382B; --on-moss:#102014; --on-moss-dim:rgba(16,32,20,.25);
-  --r-high:#E39079; --r-high-bg:#3A2620; --r-mid:#D9B264; --r-mid-bg:#352D1B; --r-low:#86BFAF; --r-low-bg:#1C322D;
-  --heat-0:#212A24; --heat-1:#2C4232; --heat-2:#3F6247; --heat-3:#5F8D63; --heat-4:#8DB592;
-  --petal:#E3BC93; --scrim:rgba(0,0,0,.55);
-  --toast-bg:#E2E8E1; --toast-fg:#16201A; --toast-action:#3E5F48;
-  --wall-a:#2D4033; --wall-b:#141D17; --on-wall:#E2E8E1;
-  --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 20px rgba(0,0,0,.22);
-  --shadow-strong:0 2px 6px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.4);
+  --bg:#232B26; --surface:#2C352F; --surface-2:#37413A; --ink:#E8EDE7; --ink-2:#AEB9B0; --line:#414C44;
+  --moss:#A3C7A7; --moss-soft:#3A4C3E; --on-moss:#1B2A1F; --on-moss-dim:rgba(27,42,31,.25);
+  --r-high:#EBA592; --r-high-bg:#4A3530; --r-mid:#E3C27E; --r-mid-bg:#463D2B; --r-low:#9DCDBE; --r-low-bg:#2F443E;
+  --heat-0:#313A34; --heat-1:#3F5545; --heat-2:#557459; --heat-3:#76A07B; --heat-4:#A3C7A7; --heat-fg-hi:#1B2A1F;
+  --petal:#EBC9A3; --scrim:rgba(0,0,0,.45);
+  --toast-bg:#E8EDE7; --toast-fg:#1F2922; --toast-action:#4E7457;
+  --wall-a:#4A5E50; --wall-b:#2C3630; --on-wall:#E8EDE7;
+  --shadow:0 1px 2px rgba(0,0,0,.22),0 6px 20px rgba(0,0,0,.16);
+  --shadow-strong:0 2px 6px rgba(0,0,0,.28),0 10px 28px rgba(0,0,0,.28);
   color-scheme:dark;
 }
 
@@ -221,8 +222,8 @@ h1{font-family:var(--font-display);font-weight:600;font-size:28px;line-height:1.
 .hc{aspect-ratio:1;max-width:100%;border:none;border-radius:8px;background:var(--heat-0);cursor:pointer;position:relative;display:grid;place-items:center;font-size:11px;color:var(--ink-2);font-variant-numeric:tabular-nums;padding:0}
 .hc.l1{background:var(--heat-1);color:var(--ink)}
 .hc.l2{background:var(--heat-2);color:var(--ink)}
-.hc.l3{background:var(--heat-3);color:var(--on-moss)}
-.hc.l4{background:var(--heat-4);color:var(--on-moss)}
+.hc.l3{background:var(--heat-3);color:var(--heat-fg-hi)}
+.hc.l4{background:var(--heat-4);color:var(--heat-fg-hi)}
 .hc.none{background:transparent;border:1px dashed var(--line)}
 .hc.future{background:transparent;color:var(--line);cursor:default}
 .hc.today{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--ink-2)}
@@ -318,4 +319,8 @@ h1{font-family:var(--font-display);font-weight:600;font-size:28px;line-height:1.
 .wkey-info span{font-size:11.5px;color:var(--ink-2)}
 .wkey-empty{font-size:13px;color:var(--ink-2)}
 .note.small{font-size:12px}
+
+/* 表示テーマの切り替え（記録タブ） */
+.theme-note{font-size:12px;color:var(--ink-2)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
